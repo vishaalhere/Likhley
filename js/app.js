@@ -58,7 +58,7 @@ function showNotes() {
 
   let html = "";
   let btnText = "Important";
-  for (let i = 0; i < notesObj.length; i++) {
+  for (let i = 0; i < notesObj.length && notesTitle.length; i++) {
     const element = notesObj[i];
     const noteTitle = notesTitle[i];
     html += `
