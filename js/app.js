@@ -25,8 +25,7 @@ function func1(e) {
       alert("Please Write Something in Title or Notes Area to add a Note!!");
       // let alert_warning = document.getElementById("header");
       // alert_warning.appendChild(warning);
-    } 
-    else {
+    } else {
       notesObj.push(addTxt.value);
       notesTitle.push(addTitle.value);
 
@@ -58,16 +57,22 @@ function showNotes() {
 
   let html = "";
   let btnText = "Important";
-  for (let i = 0; i < notesObj.length && i < notesTitle.length ; i++) {
+  for (let i = 0; i < notesObj.length && notesTitle.length; i++) {
     const element = notesObj[i];
     const noteTitle = notesTitle[i];
     html += `
             <div class="noteCard my-2 mx-2 card" style="width: 18rem; border-color:rgba(0, 0, 0, 0.600);">
                     <div class="card-body">
-                        <h5 class="card-title">${noteTitle == "" ? "Title" : noteTitle }</h5>
-                        <p  class="card-text">${element == "" ? "Note" : element }</p>
+                        <h5 class="card-title">${
+                          noteTitle == "" ? "Title" : noteTitle
+                        }</h5>
+                        <p  class="card-text">${
+                          element == "" ? "Note" : element
+                        }</p>
                         <button id="${i}" onclick="deleteNote(this.id)" class="btn btn-dark">Delete</button>
-                        <button id= "${i + 1}" onclick="important(this.id)" class="btn btn-dark">${btnText}</button>
+                        <button id= "${
+                          i + 1
+                        }" onclick="important(this.id)" class="btn btn-dark">${btnText}</button>
                     </div>
                 </div>`;
   }
@@ -120,20 +125,19 @@ search.addEventListener("input", function () {
 function important(index) {
   let cardBody = document.getElementsByClassName("card-body");
   console.log(cardBody);
-  if(cardBody[index].style.backgroundColor = '#fff'){
-    cardBody[index].style.backgroundColor = 'lightblue'
-  }
-  else{
-    cardBody[index].style.backgroundColor = '#fff';
+  if ((cardBody[index].style.backgroundColor = "#fff")) {
+    cardBody[index].style.backgroundColor = "#FF0000";
+  } else {
+    cardBody[index].style.backgroundColor = "#fff";
   }
 
-  localStorage.setItem('color', cardBody[index].style.backgroundColor)
+  localStorage.setItem("color", cardBody[index].style.backgroundColor);
   // let imp = document.getElementById(index);
   // console.log(imp);
   // let btnText = "Important";
   // imp.addEventListener('click', function input(btnText) {
   // btnText == 'Important' ? 'Not Important' : 'Important';
-// });
+  // });
 }
 /*
 Further Features:
@@ -143,20 +147,19 @@ Further Features:
 4. Sync and host to web server 
 */
 
+// let warning = document.createElement("div");
+// warning.className ="alert alert-warning alert-dismissible d-flex align-items-center";
+// warning.ariaRoleDescription = "alert";
+// warning.setAttribute('data-bs-dismiss','alert');
+// warning.innerHTML = `<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg><div>
+// Please Write Something in Title or Notes Area to add a Note!!
+// <button type="button" class="btn-close" aria-label="Close">X</button>
+// </div>`;
 
-  // let warning = document.createElement("div");
-  // warning.className ="alert alert-warning alert-dismissible d-flex align-items-center";
-  // warning.ariaRoleDescription = "alert";
-  // warning.setAttribute('data-bs-dismiss','alert');
-  // warning.innerHTML = `<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg><div>
-  // Please Write Something in Title or Notes Area to add a Note!!
-  // <button type="button" class="btn-close" aria-label="Close">X</button>
-  // </div>`;
-
-  // let success = document.createElement("div");
-  // success.className ="alert alert-success alert-dismissible d-flex align-items-center";
-  // success.ariaRoleDescription = "alert";
-  // // success.setAttribute('data-auto-dismiss','2000');
-  // success.innerHTML = `<svg class="bi flex-shrink-0 me-2"width="24"height="24"role="img"aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg><div>Note Added Successfully!!
-  // <button type="button" class="btn-close" aria-label="Close">X</button>
-  // </div>`;
+// let success = document.createElement("div");
+// success.className ="alert alert-success alert-dismissible d-flex align-items-center";
+// success.ariaRoleDescription = "alert";
+// // success.setAttribute('data-auto-dismiss','2000');
+// success.innerHTML = `<svg class="bi flex-shrink-0 me-2"width="24"height="24"role="img"aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg><div>Note Added Successfully!!
+// <button type="button" class="btn-close" aria-label="Close">X</button>
+// </div>`;
